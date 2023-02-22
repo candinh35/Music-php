@@ -1,0 +1,10 @@
+<script src="template/client/assets/js/site.min.js"></script>
+<script src="template/client/libs/jquery-fullscreen-plugin/jquery.fullscreen-min.js"></script>
+<script src="template/client/assets/js/plugins/fullscreen.js"></script>
+<script src="singertemplate/client/libs/list.js/dist/list.js"></script>
+<script src="singertemplate/client/assets/js/plugins/musicapp.js"></script>
+<script src="singertemplate/client/libs/plyr/dist/plyr.polyfilled.min.js"></script>
+<script src="singertemplate/client/libs/wavesurfer.js/dist/wavesurfer.min.js"></script>
+<script src="singertemplate/client/libs/plyrist/src/plyrist.js"></script>
+<script src="singertemplate/client/assets/js/plugins/plyr.js"></script>
+<script src="singertemplate/client/libs/slick-carousel/slick/slick.min.js"></script>
