@@ -11,6 +11,5 @@ if (isset($_GET['admin']) && $_GET['admin'] == '1') {
     $method = $_GET['action'] ?? 'index';
     require_once "Controller/$nameController.php";
 }
-
 $action = new $nameController();
 $action->$method();

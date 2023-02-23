@@ -24,7 +24,7 @@
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
-                                    <h1 class="text-center p-20 text-primary">Chào mừng bạn đến với trang quản trị của
+                                    <h1 class="text-center p-80 text-primary">Chào mừng bạn đến với trang quản trị của
                                         chúng tôi!</h1>
                                 </div>
                             </div>

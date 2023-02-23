@@ -20,7 +20,11 @@ class UserController extends Controller
     public function index()
     {
         $users = $this->user->getAll();
-        View::redirect('admin/user/indexUser', compact('users'));
+        $controller = 'user';
+        !empty($users) 
+        ? View::redirect('admin/user/indexUser', compact('users'))
+        : View::redirect('admin/notInfo', compact('controller'));
+        
     }
 
     public function show($id)
@@ -41,7 +45,7 @@ class UserController extends Controller
             Helper::back();
         }
 
-        if ($this->user->getByEmail($_POST['email'])) {
+        if ($this->user->getByEmailAdmin($_POST['email'])) {
             $_SESSION['error'] = "Email already exist, please choose email another";
             Helper::back();
         }
@@ -73,16 +77,18 @@ class UserController extends Controller
 
     public function update()
     {
-        if (empty($_GET['id']) && !is_numeric($_GET['id'])) {
+        if (!Validate::isId($_GET['id'])) {
             Helper::back();
         }
+
         if (!Validate::updateUser($_POST)) {
             Helper::back();
         }
+        
         $data = $this->user->getById($_GET['id']);
         // kiểm tra xem nếu cập nhập mà khác email thì xem có bị trùng nhau không
         if ($data['email'] != $_POST['email']) {
-            if ($this->user->getByEmail($_POST['email'])) {
+            if ($this->user->getByEmailAdmin($_POST['email'])) {
                 $_SESSION['error'] = "Email already exist, please choose email another";
                 Helper::back();
             }

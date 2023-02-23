@@ -61,7 +61,6 @@ class Model extends DB
 
         // Thực thi truy vấn
         $stmt = $this->connect->prepare($sql);
-
         // Bind giá trị cho tham số id
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 

@@ -19,7 +19,13 @@ class GenreController extends Controller
     public function index()
     {
         $genres = $this->genre->getAll();
-        View::redirect('admin/genre/indexGenre', compact('genres'));
+
+        $controller = 'genre';
+
+        !empty($genres) 
+        ? View::redirect('admin/genre/indexGenre', compact('genres'))
+        : View::redirect('admin/notInfo', compact('controller'));
+
     }
 
     public function show($id)

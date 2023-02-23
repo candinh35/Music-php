@@ -20,22 +20,21 @@ class LoginController
 
     public function login()
     {
-        if (empty($_POST['email']) && empty($_POST['email'])) {
+        
+        if (empty($_POST['email']) || empty($_POST['password'])) {
             $_SESSION['error'] = "You are fill all input";
             Helper::back();
         }
-        if(isset($_POST) && $_POST['email'] == null){
-            header('location: ?admin=1');
-        }
+
         // mã hóa mật khẩu 
         $email = $_POST['email'];
         $password = md5($_POST['password']);
-        if ($this->user->login($email, $password) < 0) {
+        if ($this->user->loginAdmin($email, $password) <= 0) {
             $_SESSION['error'] = "Incorrect account or password";
             Helper::back();
         }
 
-        $_SESSION['admin'] = $this->user->getByEmail($email);
+        $_SESSION['admin'] = $this->user->getByEmailAdmin($email);
 
         return View::redirect('admin/dashboard');
     }

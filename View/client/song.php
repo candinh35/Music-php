@@ -117,9 +117,14 @@ require_once "common/nav.php";
             </div>
         </div>
     </div>
+    <?php 
+    require_once "common/footer.php";
+    ?>
 </div>
 
-<?php require_once "common/footer.php" ?>
+<?php 
+    require_once "common/js.php";
+    ?>
 </body>
 
 </html>

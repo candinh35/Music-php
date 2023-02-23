@@ -19,7 +19,13 @@ class AlbumController extends Controller
     public function index()
     {
         $albums = $this->album->getAll();
-        View::redirect('admin/album/indexAlbum', compact('albums'));
+
+        $controller = 'album';
+
+        !empty($albums) 
+        ? View::redirect('admin/album/indexAlbum', compact('albums'))
+        : View::redirect('admin/notInfo', compact('controller'));
+        
     }
 
     public function show($id)

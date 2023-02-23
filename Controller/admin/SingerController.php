@@ -19,7 +19,13 @@ class SingerController extends Controller
     public function index()
     {
         $singers = $this->singer->getAll();
-        View::redirect('admin/singer/indexSinger', compact('singers'));
+
+        $controller = 'singer';
+
+        !empty($singers) 
+        ? View::redirect('admin/singer/indexSinger', compact('singers'))
+        : View::redirect('admin/notInfo', compact('controller'));
+
     }
 
     public function show($id)
@@ -45,6 +51,7 @@ class SingerController extends Controller
             'description' => Helper::validateInput($_POST['description']),
         ];
         $singer['avata_url'] = Helper::upload($_FILES['image']['name'], $_FILES['image']['tmp_name']);
+        
         $this->singer->create($singer);
 
         $_SESSION['success'] = "You are create success";

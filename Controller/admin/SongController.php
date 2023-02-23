@@ -30,7 +30,11 @@ class SongController extends Controller
     {
         $songs = $this->song->getNameCate();
 
-        View::redirect('admin/song/indexSong', compact('songs'));
+        $controller = 'song';
+
+        !empty($songs) 
+        ? View::redirect('admin/song/indexSong', compact('songs'))
+        : View::redirect('admin/notInfo', compact('controller'));
     }
 
     public function show($id)

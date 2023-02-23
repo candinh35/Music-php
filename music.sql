@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 22, 2023 at 10:26 AM
+-- Generation Time: Feb 23, 2023 at 09:55 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -39,7 +39,8 @@ CREATE TABLE `albums` (
 --
 
 INSERT INTO `albums` (`id`, `name`, `image_url`, `description`) VALUES
-(1, 'Nhạc mùa thu', '02-23/1677032852Screenshot_20230206_031032.png', 'hay');
+(2, 'Ta Quên Nhau Chưa', '02-23/1677120281image1.jpg', 'Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use .col-4.'),
+(3, 'Ban Nhạc Hà Nội', '02-23/1677120295image7.jpg', 'Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use .col-4.');
 
 -- --------------------------------------------------------
 
@@ -58,7 +59,8 @@ CREATE TABLE `genres` (
 --
 
 INSERT INTO `genres` (`id`, `name`, `description`) VALUES
-(1, 'Nhạc Trẻ', 'Hay Lắm các bạn ơi');
+(2, 'Nhạc Trẻ', 'Lyrics with depth and the stories to match. Some of the best stories from lyrical leaders.'),
+(3, 'Nhạc Vàng', 'Song stories about working together to create something bigger.');
 
 -- --------------------------------------------------------
 
@@ -90,7 +92,9 @@ CREATE TABLE `singers` (
 --
 
 INSERT INTO `singers` (`id`, `name`, `avata_url`, `description`) VALUES
-(1, 'Đinh Văn Căn', '02-23/1677032485anh3.jpg', 'hát hay lắm');
+(2, 'Hiền Hồ', '02-23/1677120213image4.jpg', 'Thanks to flexbox, grid columns without a specified width will automatically layout as equal width columns. For example, four instances of .col-sm will each automatically be 25% wide from the small breakpoint and up. See the auto-layout columns section for more examples.'),
+(3, 'Chi Dân', '02-23/1677120229image3.jpg', 'Thanks to flexbox, grid columns without a specified width will automatically layout as equal width columns. For example, four instances of .col-sm will each automatically be 25% wide from the small breakpoint and up. See the auto-layout columns section for more examples.'),
+(4, 'Isacc', '02-23/1677120252image5.jpg', 'Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use .col-4.');
 
 -- --------------------------------------------------------
 
@@ -105,15 +109,20 @@ CREATE TABLE `songs` (
   `file_url` varchar(255) NOT NULL,
   `album_id` int UNSIGNED DEFAULT NULL,
   `singer_id` int UNSIGNED DEFAULT NULL,
-  `genre_id` int UNSIGNED DEFAULT NULL
+  `genre_id` int UNSIGNED DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `songs`
 --
 
-INSERT INTO `songs` (`id`, `name`, `price`, `file_url`, `album_id`, `singer_id`, `genre_id`) VALUES
-(1, 'Nhạc mùa thu', 3, '02-23/16770364891676876545End-of-Time-K-391-Alan-Walker-Ahrix.mp3', 1, 1, 1);
+INSERT INTO `songs` (`id`, `name`, `price`, `file_url`, `album_id`, `singer_id`, `genre_id`, `image`) VALUES
+(3, 'Chuyện đôi ta', 2, '02-23/1677120475ChuyenDoiTa-EmceeLDaLAB-7120974.mp3', 2, 2, 2, '02-23/1677120475c2.jpg'),
+(4, 'Kết Thức Bắt Đầu', 2, '02-23/1677120524KetThucBatDau-DaLABDucPhuc-8114291.mp3', 3, 3, 2, '02-23/1677120524b2.jpg'),
+(5, 'Nhạc hay', 1, '02-23/1677120562mp3_music_summer.mp3', 2, 2, 2, '02-23/1677120562b9.jpg'),
+(6, 'Những Bản TÌnh Ca', 3, '02-23/1677120598music3.mp3', 2, 3, 3, '02-23/1677120598b7.jpg'),
+(7, 'Tình Xưa Nghĩa Cũ', 1, '02-23/1677120660music5.mp3', 3, 4, 3, '02-23/1677120660c1.jpg');
 
 -- --------------------------------------------------------
 
@@ -161,7 +170,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `wallet`, `role`) VALUES
-(1, 'Đinh Văn Căn', 'dinhcan355@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 30, 1);
+(1, 'Đinh Văn Căn', 'dinhcan355@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 30, 1),
+(5, 'hồ xuân hùng', 'hung@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '02-23/1677145832a18.jpg', 40, 0);
 
 --
 -- Indexes for dumped tables
@@ -232,13 +242,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `playlist`
@@ -250,13 +260,13 @@ ALTER TABLE `playlist`
 -- AUTO_INCREMENT for table `singers`
 --
 ALTER TABLE `singers`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `songs`
 --
 ALTER TABLE `songs`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `song_playlists`
@@ -274,7 +284,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
